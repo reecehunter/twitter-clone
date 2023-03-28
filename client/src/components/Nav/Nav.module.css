@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.navrow {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.navrow a {
+  text-decoration: none;
+  color: black;
+}
+.navrow a:hover {
+  color: inherit;
+}

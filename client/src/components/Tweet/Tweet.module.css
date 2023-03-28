@@ -1,0 +1,13 @@
+.tweet {
+  padding: 15px;
+  border-bottom: 1px solid gray;
+}
+.tweet:hover {
+  background-color: rgb(223, 220, 220);
+  cursor: pointer;
+}
+.tweet > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
