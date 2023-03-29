@@ -5,7 +5,6 @@ import ProfilePage from "./pages/ProfilePage";
 import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import Nav from "./components/Nav/Nav";
 
 function App() {
   return (

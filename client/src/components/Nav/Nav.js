@@ -10,14 +10,19 @@ const Nav = () => {
     <nav className={styles.nav}>
       <PageTitle title="Twitter" />
       <div className="mt-2 mx-3">
-        <div className={styles.navrow}>
-          <UserIcon />
-          <Link to="/home">Home</Link>
-        </div>
-        <div className={styles.navrow}>
-          <GearIcon />
-          <Link to="/profile">Profile</Link>
-        </div>
+        <Link to="/home">
+          <div className={styles.navrow}>
+            <UserIcon />
+            Home
+          </div>
+        </Link>
+
+        <Link to="/profile">
+          <div className={styles.navrow}>
+            <GearIcon />
+            Profile
+          </div>
+        </Link>
       </div>
     </nav>
   );
