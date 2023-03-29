@@ -8,16 +8,16 @@ const TweetForm = (props) => {
   const postTweet = (e) => {
     e.preventDefault();
 
+    const user = JSON.parse(localStorage.getItem("user"));
+
     const data = {
       text: e.target[0].value,
-      author: "reece",
+      author: user.username,
     };
 
     axios
       .post(`http://localhost:8080/api/tweets`, data)
       .then((res) => {
-        console.log("#");
-        console.log(res);
         e.target[0].value = "";
         setFeed([res.data, ...feed]);
       })

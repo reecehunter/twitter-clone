@@ -13,15 +13,14 @@ const HomePage = () => {
     axios
       .get("http://localhost:8080/api/users")
       .then((res) => {
-        console.log(res.data);
         const feedData = [];
         for (const user of res.data) {
           for (const tweet of user.tweets) {
             feedData.push({ pfpLink: user.pfpLink, username: user.username, displayName: user.displayName, text: tweet.text, createdAt: tweet.createdAt });
           }
         }
-        // TODO: Sort by createdAt
-        setFeed(feedData);
+        const sortedFeed = feedData.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setFeed(sortedFeed);
       })
       .catch((err) => console.log(err));
   }, []);

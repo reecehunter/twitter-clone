@@ -28,9 +28,8 @@ const ProfilePage = () => {
     axios
       .get(`http://localhost:8080/api/users/${userData.username}`)
       .then((res) => {
-        console.log(res.data);
-        const feedData = res.data.tweets.map((v) => ({ ...v, pfpLink: userData.pfpLink, username: userData.username, displayName: userData.displayName }));
-        setFeed(feedData);
+        const feedData = res.data.tweets.map((t) => ({ ...t, pfpLink: userData.pfpLink, username: userData.username, displayName: userData.displayName }));
+        setFeed(feedData.reverse());
       })
       .catch((err) => console.log(err));
   }, [userData]);

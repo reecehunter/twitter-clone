@@ -13,6 +13,7 @@ const LoginPage = () => {
       .post("http://localhost:8080/api/users/login", { username: e.target[0].value, password: e.target[1].value })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
         navigate("/home");
       })
       .catch((err) => {
