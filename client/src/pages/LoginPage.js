@@ -12,7 +12,7 @@ const LoginPage = () => {
     axios
       .post("http://localhost:8080/api/users/login", { username: e.target[0].value, password: e.target[1].value })
       .then((res) => {
-        localStorage.setItem("user", res.data);
+        localStorage.setItem("token", res.data.token);
         navigate("/home");
       })
       .catch((err) => {

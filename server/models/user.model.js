@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const { TweetSchema } = require("./tweet.model");
 
 const UserSchema = new mongoose.Schema(
   {
@@ -27,6 +28,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: "https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=640https://pbs.twimg.com/media/DCU4xoLVwAAJWhH.jpg",
     },
+    tweets: [TweetSchema],
   },
   {
     timestamps: true,

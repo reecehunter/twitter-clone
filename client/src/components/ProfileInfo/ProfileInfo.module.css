@@ -1,0 +1,24 @@
+.container {
+  border-bottom: 1px solid gray;
+  position: relative;
+}
+
+.subcontainer {
+  padding: 15px;
+}
+
+.pfp {
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 100px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 100;
+}
+
+.banner {
+  width: 100%;
+  height: 200px;
+  background-color: gray;
+  position: absolute;
+}

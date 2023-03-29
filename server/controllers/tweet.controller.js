@@ -1,4 +1,5 @@
-const Tweet = require("../models/tweet.model");
+const { Tweet } = require("../models/tweet.model");
+const User = require("../models/user.model");
 
 module.exports.findAll = (req, res) => {
   Tweet.find()
@@ -14,7 +15,20 @@ module.exports.findOne = (req, res) => {
 
 module.exports.createOne = (req, res) => {
   Tweet.create(req.body)
-    .then((result) => res.json(result))
+    .then((result) => {
+      User.findOneAndUpdate({ username: req.body.author }, { $push: { tweets: result } })
+        .then((result2) => {
+          const tweetData = {
+            pfpLink: result2.pfpLink,
+            displayName: result2.displayName,
+            username: result2.username,
+            text: result.text,
+            createdAt: result.createdAt,
+          };
+          res.json(tweetData);
+        })
+        .catch((err) => res.status(400).json(err));
+    })
     .catch((err) => res.status(400).json(err));
 };
 
