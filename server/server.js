@@ -10,5 +10,6 @@ app.use(express.json(), express.urlencoded({ extended: true }), cors());
 
 require("./routes/user.route")(app);
 require("./routes/tweet.route")(app);
+require("./routes/news.route")(app);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
