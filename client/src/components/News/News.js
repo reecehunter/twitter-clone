@@ -10,15 +10,12 @@ const News = () => {
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/news")
-      .then((res) => {
-        console.log(res.data);
-        setNews(res.data.filter((a) => a.content !== null && a.source.id !== null));
-      })
+      .then((res) => setNews(res.data.filter((a) => a.content !== null && a.source.id !== null)))
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <PageTitle title="News" />
       {news.map((article, index) => (
         <a key={index} href={article.url} className="link-no-decoration" rel="noreferrer" target="_blank">
