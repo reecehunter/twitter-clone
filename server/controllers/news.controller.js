@@ -19,4 +19,4 @@ const cacheNews = async () => {
 };
 
 cacheNews();
-setTimeout(() => cacheNews, 60 * 1000);
+setTimeout(() => cacheNews, 600 * 1000); // 10 minutes
